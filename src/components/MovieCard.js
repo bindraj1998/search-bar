@@ -12,9 +12,9 @@ export class MovieCard extends Component {
                 <Card.Img variant="top" src={movie.Poster} alt="Movie Poster" />
                 <Card.Body>
                     <Card.Title>{movie.Title} -{movie.Year}</Card.Title>
-                    <Link to={`/movie/${movie.imdbID}`}>
+                    {/* <Link to={`/movie/${movie.imdbID}`}>
                         <Button variant="primary">More Details</Button>
-                    </Link>
+                    </Link> */}
                 </Card.Body>
             </Card>
         )

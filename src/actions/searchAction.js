@@ -1,7 +1,6 @@
 import {SEARCH_MOVIE, FETCH_MOVIES, FETCH_MOVIE, LOADING} from './types'
 import axios from 'axios'
 
-//Search Movie Action Creator - Search for a movie by passing in text typed by the user
 export const searchMovie = (text) => dispatch => {
     dispatch({
         type: SEARCH_MOVIE,
@@ -9,7 +8,6 @@ export const searchMovie = (text) => dispatch => {
     })
 }
 
-//Fetch the movies that user requests
 export const fetchMovies = (text) => async dispatch => {
     try{
         const urlBase = 'https://www.omdbapi.com/?s='
@@ -27,7 +25,6 @@ export const fetchMovies = (text) => async dispatch => {
 }
 
 
-//Fetch an Invidivual Movie
 export const fetchMovie = (id) => async dispatch => { 
     try{
         const urlBase = 'https://www.omdbapi.com/?i='
@@ -44,7 +41,6 @@ export const fetchMovie = (id) => async dispatch => {
     }
 }
 
-//Update the Loading State 
 export const setLoading = () => {
     return {
         type: LOADING

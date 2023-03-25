@@ -6,32 +6,31 @@ import {
 } from '../actions/types'
 
 const initialState = {
-    text: '',  // <-- The Search text user enters
-    movies: [], //<-- The search from the search result
-    loading: false, // <-- Control loading spinner display
-    movie: [] //<-- indiviual movie
+    text: '',  
+    movies: [], 
+    loading: false, 
+    movie: [] 
 }
 
-//Export a function that takes passes initial state and an action - then use Switch and case to return
 export default function(state = initialState, action){
     switch(action.type){
         case SEARCH_MOVIE:
             return {
-                ...state,               // <-- return the state
-                text: action.payload,   // <-- return the payload
-                loading: false          // return false loading
+                ...state,               
+                text: action.payload,   
+                loading: false          
             }
         case FETCH_MOVIES:
             return {
                 ...state,
-                movies: action.payload,     //return the movies array
-                loading: false              //set the loading to false (otherwise spinner will keep showing)
+                movies: action.payload,     
+                loading: false              
             }  
         case FETCH_MOVIE:
             return {
                 ...state,
-                movie: action.payload,  //return individual movie
-                loading: false              //set the loading to false (otherwise spinner will keep showing)
+                movie: action.payload,  
+                loading: false              
             }
         case LOADING:
             return {

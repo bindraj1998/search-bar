@@ -3,19 +3,17 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {fetchMovie, setLoading} from '../actions/searchAction'
 
-//Components
+
 import Spinner from './Spinner'
 
-//Bootstrap
+
 import {Card, Row, ListGroup, Container, Col, Button} from 'react-bootstrap'
 
 export class Movie extends Component {
     
-    //Run this 1 Time When the Component First Renders - Want to Run IMDB Query to get Information For Particular Movie
     componentDidMount(){
-        //params = last part of url (ex: http://localhost:3001/movie/tt0848228 --- tt0848228)
-        this.props.fetchMovie(this.props.match.params.id)  //fetchMovie takes an id; Get access to the movie id using params
-        this.props.setLoading();   //set the loading to true
+        this.props.fetchMovie(this.props.match.params.id) 
+        this.props.setLoading();   
     }
 
     render() {
@@ -82,7 +80,6 @@ export class Movie extends Component {
     }
 }
 
-//mapStateToProps to get component to access the state via props
 const mapStateToProps = (state) => {
     return {
         loading: state.movies.loading,
@@ -90,7 +87,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-//Connect With the Redux Store
 export default connect(mapStateToProps,{
     fetchMovie,
     setLoading
